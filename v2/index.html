@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GeoSpark Technocrats | Consultancy, Survey &amp; Construction</title>
+<meta name="description" content="GeoSpark Technocrats — multi-disciplinary consultancy and construction firm specializing in survey, engineering design, construction and water resource solutions.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+<style>
+:root{
+  --navy:#0e1c38;
+  --blue:#1d4f91;
+  --blue-bright:#1c6fc9;
+  --cyan:#29b6e8;
+  --sky:#eaf6fc;
+  --ink:#14213d;
+  --muted:#5b6472;
+  --paper:#ffffff;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.font-display{
+  font-family:'Poppins',sans-serif;
+  color:var(--navy);
+}
+.eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:700;
+  font-size:.85rem;
+  color:var(--blue-bright);
+}
+.eyebrow.light{color:var(--cyan);}
+.section-pad{padding:5.5rem 0;}
+@media(max-width:767px){.section-pad{padding:3.25rem 0;}}
+.bg-sky{background:var(--sky);}
+.bg-navy{background:var(--navy);}
+.text-blue{color:var(--blue-bright);}
+
+/* ---------- Signature diagonal fold motif (from GeoSpark brand) ---------- */
+.fold{
+  position:absolute;
+  top:0; right:0;
+  width:280px; height:280px;
+  z-index:1;
+  pointer-events:none;
+}
+.fold svg{width:100%;height:100%;}
+.fold-corner-tl{top:0;left:0;right:auto;transform:scaleX(-1);}
+.divider-fold{
+  position:relative;
+  height:56px;
+  background:linear-gradient(120deg,var(--navy) 0 48%, var(--blue) 48% 100%);
+  clip-path:polygon(0 0,100% 0,100% 40%,0 100%);
+}
+
+/* ---------- Top info strip ---------- */
+.topstrip{
+  background:var(--navy);
+  color:#cfe0f5;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.92rem;
+  letter-spacing:.02em;
+}
+.topstrip a{color:#cfe0f5;text-decoration:none;}
+.topstrip a:hover{color:var(--cyan);}
+.topstrip .social-ico a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.08);margin-left:6px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar{
+  padding:.85rem 0;
+  background:#fff;
+  transition:box-shadow .25s ease, padding .25s ease;
+}
+.navbar.scrolled{box-shadow:0 4px 18px rgba(14,28,56,.1);padding:.5rem 0;}
+.brand-mark{
+  font-family:'Poppins',sans-serif;
+  font-weight:800;
+  font-size:1.55rem;
+  color:var(--navy);
+  line-height:1;
+}
+.brand-mark span{color:var(--blue-bright);}
+.brand-sub{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.72rem;
+  letter-spacing:.28em;
+  color:var(--muted);
+  text-transform:uppercase;
+  display:block;
+}
+.navbar .nav-link{
+  font-weight:600;font-size:.95rem;color:var(--ink);
+  margin:0 .35rem;position:relative;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active{color:var(--blue-bright);}
+.btn-brand{
+  background:var(--blue-bright);border:none;color:#fff;
+  font-weight:600;padding:.55rem 1.4rem;border-radius:4px;
+  transition:background .2s ease, transform .2s ease;
+}
+.btn-brand:hover{background:var(--navy);color:#fff;transform:translateY(-1px);}
+.btn-outline-brand{
+  border:1.5px solid var(--blue-bright);color:var(--blue-bright);
+  font-weight:600;padding:.55rem 1.4rem;border-radius:4px;background:transparent;
+}
+.btn-outline-brand:hover{background:var(--blue-bright);color:#fff;}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  background:radial-gradient(120% 140% at 15% 10%, #143261 0%, var(--navy) 45%, #081127 100%);
+  color:#fff;
+  padding:6.5rem 0 5rem;
+  overflow:hidden;
+}
+.hero .contour{
+  position:absolute;inset:0;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%2329b6e8' stroke-width='1'%3E%3Cpath d='M-50 650 Q200 550 400 650 T900 600'/%3E%3Cpath d='M-50 600 Q220 500 420 600 T900 550'/%3E%3Cpath d='M-50 550 Q240 450 440 550 T900 500'/%3E%3Cpath d='M-50 500 Q260 400 460 500 T900 450'/%3E%3Cpath d='M-50 450 Q280 350 480 450 T900 400'/%3E%3Cpath d='M-50 400 Q300 300 500 400 T900 350'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:cover;background-position:center;
+}
+.hero .fold-hero{
+  position:absolute;top:-40px;right:-40px;width:340px;height:340px;
+  background:linear-gradient(135deg,var(--blue) 0%, var(--cyan) 100%);
+  clip-path:polygon(30% 0,100% 0,100% 70%,0 100%,0 30%);
+  opacity:.9;z-index:0;
+}
+#heroCarousel .badge-iso{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.78rem;letter-spacing:.08em;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.25);
+  padding:.4rem .9rem;border-radius:30px;
+  display:inline-block;
+}
+#heroCarousel h1{
+  color:#fff;font-weight:800;font-size:2.9rem;line-height:1.15;
+}
+@media(max-width:767px){#heroCarousel h1{font-size:2rem;}}
+#heroCarousel p.lead{color:#c8d6ec;font-size:1.12rem;max-width:560px;}
+.hero-stats{
+  position:relative;z-index:2;
+  background:var(--blue);
+  margin-top:-1px;
+}
+.hero-stats .stat{
+  padding:1.7rem 1rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.hero-stats .stat:last-child{border-right:none;}
+.hero-stats .stat h3{
+  color:#fff;font-weight:800;font-size:2rem;margin-bottom:.15rem;
+}
+.hero-stats .stat span{
+  font-family:'Barlow Condensed',sans-serif;
+  color:#cfe0f5;letter-spacing:.06em;font-size:.9rem;text-transform:uppercase;
+}
+
+/* ---------- Sector / Service icon tiles ---------- */
+.sector-tile{
+  text-align:center;padding:1.6rem 1rem;
+  border-radius:10px;
+  transition:transform .25s ease, box-shadow .25s ease;
+  cursor:default;height:100%;
+}
+.sector-tile:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(14,28,56,.1);}
+.sector-tile .ic{
+  width:68px;height:68px;border-radius:50%;
+  background:linear-gradient(145deg,var(--blue-bright),var(--navy));
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1rem;
+  font-size:1.6rem;color:#fff;
+}
+.sector-tile h6{font-weight:700;font-size:.95rem;color:var(--navy);margin:0;}
+
+/* ---------- Section title ---------- */
+.sec-title{font-weight:800;font-size:2.1rem;margin-top:.3rem;}
+@media(max-width:767px){.sec-title{font-size:1.55rem;}}
+.sec-lead{color:var(--muted);max-width:680px;}
+
+/* ---------- About signature panel ---------- */
+.about-panel{
+  position:relative;
+  background:linear-gradient(160deg,var(--navy) 0%, var(--blue) 100%);
+  border-radius:14px;padding:2.5rem;color:#fff;overflow:hidden;
+  min-height:340px;
+}
+.about-panel .fold-mini{
+  position:absolute;top:-20px;right:-20px;width:150px;height:150px;
+  background:#0e1c38;clip-path:polygon(30% 0,100% 0,100% 70%,0 100%,0 30%);
+  opacity:.5;
+}
+.about-panel .wave{
+  position:absolute;bottom:-40px;left:-30px;width:220px;height:150px;opacity:.35;
+  background:radial-gradient(circle at 30% 30%, var(--cyan), transparent 70%);
+}
+
+/* ---------- Accordion (Services) ---------- */
+.accordion-item{border:none;margin-bottom:.8rem;border-radius:8px !important;overflow:hidden;box-shadow:0 2px 10px rgba(14,28,56,.06);}
+.accordion-button{
+  font-family:'Poppins',sans-serif;font-weight:700;color:var(--navy);
+  background:#fff;padding:1.1rem 1.4rem;
+}
+.accordion-button:not(.collapsed){
+  background:var(--blue-bright);color:#fff;box-shadow:none;
+}
+.accordion-button:focus{box-shadow:none;}
+.accordion-button::after{filter:none;}
+.accordion-button .svc-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;margin-right:.75rem;font-size:1.1rem;opacity:.6;
+}
+.accordion-body{padding:1.4rem;background:#fbfdff;}
+.svc-list{columns:2;column-gap:2rem;list-style:none;padding:0;margin:0;}
+@media(max-width:576px){.svc-list{columns:1;}}
+.svc-list li{
+  padding:.35rem 0;font-size:.95rem;color:var(--ink);
+  break-inside:avoid;
+}
+.svc-list li i{color:var(--blue-bright);margin-right:.5rem;}
+
+/* ---------- Mission / Vision ---------- */
+.mv-card{
+  border-radius:12px;padding:2rem;height:100%;
+}
+.mv-card.mission{background:var(--navy);color:#fff;}
+.mv-card.vision{background:var(--cyan);color:var(--navy);}
+.mv-card h3{color:inherit;font-weight:800;}
+.mv-card ol{padding-left:1.2rem;}
+.mv-card ol li{margin-bottom:.55rem;font-size:.95rem;line-height:1.45;}
+.mv-card ul li{margin-bottom:.55rem;font-size:.95rem;}
+
+/* ---------- Values ---------- */
+.value-card{
+  border-left:4px solid var(--blue-bright);
+  background:#fff;padding:1.3rem 1.4rem;border-radius:6px;
+  box-shadow:0 2px 12px rgba(14,28,56,.06);height:100%;
+}
+.value-card h6{font-weight:700;color:var(--navy);margin-bottom:.4rem;}
+.value-card p{font-size:.9rem;color:var(--muted);margin:0;}
+
+/* ---------- Leadership ---------- */
+.lead-card{
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(14,28,56,.08);
+  text-align:center;height:100%;
+}
+.lead-card .avatar{
+  width:96px;height:96px;border-radius:50%;
+  background:linear-gradient(145deg,var(--blue-bright),var(--navy));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:2.1rem;font-weight:700;
+  margin:1.6rem auto .8rem;font-family:'Poppins',sans-serif;
+}
+.lead-card h6{font-weight:700;margin-bottom:.1rem;color:var(--navy);}
+.lead-card .role{
+  font-family:'Barlow Condensed',sans-serif;
+  color:var(--blue-bright);font-size:.85rem;letter-spacing:.05em;
+  text-transform:uppercase;font-weight:600;
+}
+.lead-card .desc{font-size:.83rem;color:var(--muted);padding:0 1.1rem 1.4rem;}
+.lead-card.proprietor{border-top:4px solid var(--cyan);}
+.lead-card .adv-badge{
+  display:inline-block;background:var(--sky);color:var(--blue-bright);
+  font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.2rem .7rem;border-radius:20px;margin-bottom:.6rem;font-weight:700;
+}
+
+/* ---------- Why us (new firm honesty) ---------- */
+.why-strip{
+  background:var(--sky);border-radius:14px;padding:2.4rem;
+}
+.why-item{display:flex;gap:1rem;margin-bottom:1.3rem;}
+.why-item i{
+  width:44px;height:44px;min-width:44px;border-radius:10px;
+  background:var(--blue-bright);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-size:1.15rem;
+}
+.why-item h6{font-weight:700;margin-bottom:.2rem;color:var(--navy);}
+.why-item p{font-size:.88rem;color:var(--muted);margin:0;}
+
+/* ---------- CTA banner ---------- */
+.cta-banner{
+  background:linear-gradient(120deg,var(--blue) 0%, var(--blue-bright) 60%, var(--cyan) 130%);
+  color:#fff;border-radius:16px;padding:3rem;position:relative;overflow:hidden;
+}
+.cta-banner .fold-mini2{
+  position:absolute;bottom:-30px;left:-30px;width:170px;height:170px;
+  background:var(--navy);opacity:.35;
+  clip-path:polygon(30% 0,100% 0,100% 70%,0 100%,0 30%);transform:rotate(180deg);
+}
+
+/* ---------- Contact ---------- */
+.contact-card{
+  background:var(--navy);color:#fff;border-radius:14px;padding:2.2rem;
+}
+.contact-card .item{display:flex;gap:1rem;margin-bottom:1.4rem;}
+.contact-card .item i{
+  width:42px;height:42px;min-width:42px;border-radius:8px;
+  background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;
+}
+.contact-card .item h6{margin:0 0 .2rem;font-weight:700;font-size:.9rem;letter-spacing:.02em;color:#cfe0f5;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;}
+.contact-card .item p{margin:0;font-size:.95rem;}
+.contact-card .item a{color:#fff;text-decoration:none;}
+.contact-card .item a:hover{color:var(--cyan);}
+.contact-form-wrap{
+  background:#fff;border-radius:14px;padding:2.2rem;
+  box-shadow:0 6px 30px rgba(14,28,56,.08);
+}
+.form-control, .form-select{
+  border-radius:6px;border:1px solid #d8dee8;padding:.65rem .9rem;font-size:.95rem;
+}
+.form-control:focus,.form-select:focus{
+  border-color:var(--blue-bright);box-shadow:0 0 0 .2rem rgba(28,111,201,.15);
+}
+.map-wrap{border-radius:14px;overflow:hidden;height:100%;min-height:220px;}
+.map-wrap iframe{width:100%;height:100%;min-height:220px;border:0;filter:grayscale(15%);}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy);color:#c8d3e6;}
+footer h6{
+  color:#fff;font-weight:700;font-family:'Poppins',sans-serif;margin-bottom:1rem;
+}
+footer a{color:#c8d3e6;text-decoration:none;font-size:.92rem;}
+footer a:hover{color:var(--cyan);}
+footer ul{list-style:none;padding:0;margin:0;}
+footer ul li{margin-bottom:.55rem;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:.85rem;color:#93a2bd;padding:1.1rem 0;
+}
+.social-round{
+  width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);
+  display:inline-flex;align-items:center;justify-content:center;color:#fff;margin-right:.5rem;
+}
+.social-round:hover{background:var(--blue-bright);color:#fff;}
+
+/* ---------- Floating buttons ---------- */
+.float-stack{
+  position:fixed;right:20px;bottom:22px;z-index:1200;
+  display:flex;flex-direction:column;gap:12px;align-items:center;
+}
+.float-btn{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:1.35rem;box-shadow:0 6px 18px rgba(0,0,0,.25);
+  transition:transform .2s ease;text-decoration:none;
+}
+.float-btn:hover{transform:scale(1.08);color:#fff;}
+.float-btn.whatsapp{background:#25D366;}
+.float-btn.call{background:var(--blue-bright);}
+.float-btn.email{background:#e2574c;}
+.float-btn.top{
+  background:var(--navy);opacity:0;visibility:hidden;transform:translateY(10px);
+  width:44px;height:44px;font-size:1.1rem;
+}
+.float-btn.top.show{opacity:1;visibility:visible;transform:translateY(0);}
+
+.divider-wave{
+  height:46px;background:var(--sky);
+  clip-path:polygon(0 40%,100% 0,100% 100%,0 100%);
+}
+
+/* =====================================================
+   THEME PATTERNS (stand in for photography - original,
+   brand-derived illustrations used as "thumbnail" art)
+   ===================================================== */
+.pattern{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
+.pattern-survey{background:
+    radial-gradient(circle at 30% 30%, rgba(41,182,232,.55), transparent 55%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.08) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 1px, transparent 1px 34px),
+    linear-gradient(135deg,#0e1c38,#1d4f91);}
+.pattern-consultancy{background:
+    radial-gradient(circle at 70% 20%, rgba(41,182,232,.5), transparent 50%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 2px, transparent 2px 22px),
+    linear-gradient(135deg,#12224a,#1c6fc9);}
+.pattern-construction{background:
+    radial-gradient(circle at 25% 75%, rgba(255,255,255,.12), transparent 55%),
+    repeating-linear-gradient(45deg, rgba(255,193,7,.35) 0 14px, rgba(14,28,56,.9) 14px 28px),
+    linear-gradient(135deg,#0e1c38,#0e1c38);}
+.pattern-water{background:
+    radial-gradient(ellipse at 60% 100%, rgba(41,182,232,.6), transparent 60%),
+    repeating-radial-gradient(circle at 20% 20%, rgba(255,255,255,.06) 0 2px, transparent 2px 30px),
+    linear-gradient(135deg,#0b3054,#1c6fc9);}
+.pattern-training{background:
+    radial-gradient(circle, rgba(255,255,255,.16) 1.5px, transparent 1.6px),
+    linear-gradient(135deg,#0e1c38,#284d8c);
+  background-size:22px 22px, cover;}
+.pattern-construction2{background:
+    radial-gradient(circle at 80% 20%, rgba(41,182,232,.45), transparent 55%),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.06) 0 2px, transparent 2px 20px),
+    linear-gradient(135deg,#1d4f91,#0e1c38);}
+
+/* Thumbnail overlay card (used for Sectors / Services preview / Why-us) */
+.thumb-card{
+  position:relative;border-radius:12px;overflow:hidden;height:200px;
+  display:flex;align-items:flex-end;text-decoration:none;
+  box-shadow:0 8px 24px rgba(14,28,56,.12);
+}
+.thumb-card:hover .pattern{transform:scale(1.12);}
+.thumb-card .overlay{
+  position:relative;z-index:2;width:100%;
+  padding:1.1rem 1.2rem;
+  background:linear-gradient(0deg, rgba(6,12,26,.92) 0%, rgba(6,12,26,.15) 85%, transparent 100%);
+  color:#fff;
+  transition:padding .3s ease;
+}
+.thumb-card:hover .overlay{padding-bottom:1.5rem;}
+.thumb-card .overlay .ic-sm{
+  width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;
+  backdrop-filter:blur(2px);font-size:1.05rem;
+}
+.thumb-card .overlay h6{color:#fff;font-weight:700;margin:0 0 .15rem;font-size:1.02rem;}
+.thumb-card .overlay small{color:#c8d9f2;font-size:.78rem;}
+.thumb-card .arrow-chip{
+  position:absolute;top:14px;right:14px;z-index:2;
+  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  opacity:0;transform:translateY(-6px);transition:all .3s ease;
+}
+.thumb-card:hover .arrow-chip{opacity:1;transform:translateY(0);}
+.thumb-card.tall{height:260px;}
+
+/* =====================================================
+   HERO CAROUSEL
+   ===================================================== */
+#heroCarousel{position:relative;}
+#heroCarousel .carousel-item{
+  min-height:560px;display:flex;align-items:center;
+  position:relative;overflow:hidden;color:#fff;
+}
+@media(max-width:767px){#heroCarousel .carousel-item{min-height:600px;}}
+#heroCarousel .contour{position:absolute;inset:0;opacity:.3;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%2329b6e8' stroke-width='1'%3E%3Cpath d='M-50 650 Q200 550 400 650 T900 600'/%3E%3Cpath d='M-50 600 Q220 500 420 600 T900 550'/%3E%3Cpath d='M-50 550 Q240 450 440 550 T900 500'/%3E%3Cpath d='M-50 500 Q260 400 460 500 T900 450'/%3E%3Cpath d='M-50 450 Q280 350 480 450 T900 400'/%3E%3Cpath d='M-50 400 Q300 300 500 400 T900 350'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:cover;background-position:center;}
+#heroCarousel .fold-hero{
+  position:absolute;top:-40px;right:-40px;width:340px;height:340px;z-index:1;
+  background:linear-gradient(135deg,var(--blue) 0%, var(--cyan) 100%);
+  clip-path:polygon(30% 0,100% 0,100% 70%,0 100%,0 30%);opacity:.9;
+}
+#heroCarousel .slide-bg{position:absolute;inset:0;z-index:0;}
+#heroCarousel .carousel-caption-custom{position:relative;z-index:3;text-align:left;max-width:640px;padding:0;}
+#heroCarousel .carousel-item .badge-iso,
+#heroCarousel .carousel-item h1,
+#heroCarousel .carousel-item p,
+#heroCarousel .carousel-item .hero-btns{
+  opacity:0;transform:translateY(24px);
+  animation:heroUp .8s ease forwards;
+}
+#heroCarousel .carousel-item.active .badge-iso{animation-delay:.15s;}
+#heroCarousel .carousel-item.active h1{animation-delay:.3s;}
+#heroCarousel .carousel-item.active p{animation-delay:.45s;}
+#heroCarousel .carousel-item.active .hero-btns{animation-delay:.6s;}
+@keyframes heroUp{to{opacity:1;transform:translateY(0);}}
+#heroCarousel .carousel-indicators{bottom:14px;}
+#heroCarousel .carousel-indicators [data-bs-target]{
+  width:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.4);
+  opacity:1;border:none;
+}
+#heroCarousel .carousel-indicators .active{background:var(--cyan);}
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next{width:56px;opacity:1;}
+#heroCarousel .ctrl-ic{
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;
+  transition:background .2s ease, transform .2s ease;
+}
+#heroCarousel .carousel-control-prev:hover .ctrl-ic,
+#heroCarousel .carousel-control-next:hover .ctrl-ic{background:var(--blue-bright);transform:scale(1.08);}
+.kbd-hint{
+  font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.06em;
+  color:#a9bfe0;display:flex;align-items:center;gap:.4rem;
+}
+.kbd-hint kbd{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+  border-radius:4px;padding:.05rem .4rem;font-family:inherit;
+}
+
+/* Generic transitions / motion */
+a, .nav-link, .btn-brand, .btn-outline-brand, .sector-tile, .value-card, .lead-card, .accordion-button{
+  transition:all .25s ease;
+}
+.value-card:hover{transform:translateY(-5px);box-shadow:0 12px 26px rgba(14,28,56,.12);}
+.lead-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(14,28,56,.14);}
+.hero-stats .stat{transition:transform .25s ease;}
+.hero-stats .stat:hover{transform:translateY(-4px);}
+.social-round, .float-btn{transition:transform .2s ease, background .2s ease;}
+.float-btn.whatsapp{animation:pulseWA 2.6s ease-in-out infinite;}
+@keyframes pulseWA{
+  0%,100%{box-shadow:0 6px 18px rgba(0,0,0,.25),0 0 0 0 rgba(37,211,102,.5);}
+  50%{box-shadow:0 6px 18px rgba(0,0,0,.25),0 0 0 10px rgba(37,211,102,0);}
+}
+.btn-brand:hover, .btn-outline-brand:hover{transform:translateY(-2px);}
+.accordion-button::after{transition:transform .3s ease;}
+
+/* AOS speed tweak */
+[data-aos]{transition-duration:700ms !important;}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP STRIP ============ -->
+<div class="topstrip py-2 d-none d-md-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div>
+      <i class="bi bi-telephone-fill me-1"></i> <a href="tel:+918368888930">+91 83688 88930</a>
+      <span class="mx-3">|</span>
+      <i class="bi bi-envelope-fill me-1"></i> <a href="mailto:geospark.business@gmail.com">geospark.business@gmail.com</a>
+      <span class="mx-3">|</span>
+      <i class="bi bi-geo-alt-fill me-1"></i> Shakarpur, East Delhi
+    </div>
+    <div class="d-flex align-items-center">
+      <span class="me-2">Follow us:</span>
+      <div class="social-ico">
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-whatsapp"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <span class="brand-mark">Geo<span>Spark</span></span>
+      <span class="brand-sub">Technocrats</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sectors">Sectors</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn-brand" href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO CAROUSEL ============ -->
+<header id="home">
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Survey"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Consultancy"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Construction"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Water Resources"></button>
+  </div>
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <div class="slide-bg pattern pattern-survey"></div>
+      <div class="contour"></div>
+      <div class="fold-hero d-none d-md-block"></div>
+      <div class="container">
+        <div class="carousel-caption-custom">
+          <span class="badge-iso mb-3"><i class="bi bi-geo-alt me-1"></i> Ground Survey &amp; Data Capture</span>
+          <h1 class="mt-3 mb-3">Engineering Ground Realities Into Lasting Infrastructure</h1>
+          <p class="lead mb-4">Geological, geotechnical, hydrological, topographical and LiDAR/drone surveys — precise data that every design decision can stand on.</p>
+          <div class="d-flex flex-wrap gap-3 hero-btns">
+            <a href="#services" class="btn-brand">Explore Our Services</a>
+            <a href="#contact" class="btn-outline-brand" style="border-color:#fff;color:#fff;">Talk to Our Team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="slide-bg pattern pattern-consultancy"></div>
+      <div class="contour"></div>
+      <div class="fold-hero d-none d-md-block"></div>
+      <div class="container">
+        <div class="carousel-caption-custom">
+          <span class="badge-iso mb-3"><i class="bi bi-clipboard-data me-1"></i> Design &amp; Consultancy</span>
+          <h1 class="mt-3 mb-3">DPR to Detailed Design, Handled End-to-End</h1>
+          <p class="lead mb-4">Bridges, highways, tunnels, dams and canals — designed with modelling, EIA and regulatory compliance built in from day one.</p>
+          <div class="d-flex flex-wrap gap-3 hero-btns">
+            <a href="#services" class="btn-brand">See Consultancy Services</a>
+            <a href="#leadership" class="btn-outline-brand" style="border-color:#fff;color:#fff;">Meet Our Advisors</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="slide-bg pattern pattern-construction"></div>
+      <div class="contour"></div>
+      <div class="fold-hero d-none d-md-block"></div>
+      <div class="container">
+        <div class="carousel-caption-custom">
+          <span class="badge-iso mb-3"><i class="bi bi-building me-1"></i> Construction Execution</span>
+          <h1 class="mt-3 mb-3">From Blueprint to Built, On Site</h1>
+          <p class="lead mb-4">Roads, highways, bridges, tunnels, railways and residential buildings — executed with precision, safety and regulatory discipline.</p>
+          <div class="d-flex flex-wrap gap-3 hero-btns">
+            <a href="#services" class="btn-brand">View Construction Scope</a>
+            <a href="#contact" class="btn-outline-brand" style="border-color:#fff;color:#fff;">Request a Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <div class="slide-bg pattern pattern-water"></div>
+      <div class="contour"></div>
+      <div class="fold-hero d-none d-md-block"></div>
+      <div class="container">
+        <div class="carousel-caption-custom">
+          <span class="badge-iso mb-3"><i class="bi bi-droplet me-1"></i> Water Resources &amp; Sustainability</span>
+          <h1 class="mt-3 mb-3">Resilient Water Systems for Growing Communities</h1>
+          <p class="lead mb-4">Flood modelling, groundwater studies, water treatment and disaster mitigation — engineered for a changing climate.</p>
+          <div class="d-flex flex-wrap gap-3 hero-btns">
+            <a href="#sectors" class="btn-brand">Browse All Sectors</a>
+            <a href="#contact" class="btn-outline-brand" style="border-color:#fff;color:#fff;">Talk to Our Team</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="ctrl-ic"><i class="bi bi-chevron-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="ctrl-ic"><i class="bi bi-chevron-right"></i></span>
+  </button>
+</div>
+</header>
+
+<div class="hero-stats">
+  <div class="container">
+    <div class="d-flex justify-content-end pt-2 pb-1 d-none d-md-flex">
+      <span class="kbd-hint"><kbd>&larr;</kbd><kbd>&rarr;</kbd> use arrow keys to browse banners</span>
+    </div>
+    <div class="row g-0">
+      <div class="col-6 col-md-3 stat">
+        <h3>2026</h3><span>Founded</span>
+      </div>
+      <div class="col-6 col-md-3 stat">
+        <h3>5</h3><span>Service Verticals</span>
+      </div>
+      <div class="col-6 col-md-3 stat">
+        <h3>8</h3><span>Survey Disciplines</span>
+      </div>
+      <div class="col-6 col-md-3 stat">
+        <h3>4</h3><span>Senior Advisors</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section-pad" id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="eyebrow">Who We Are</span>
+        <h2 class="sec-title">A New Firm, Built on Experienced Foundations</h2>
+        <p class="text-muted mt-3">GeoSpark Technocrats is a multi-disciplinary consultancy and construction firm delivering integrated solutions that combine expert advisory services with efficient project execution. We bring together engineering, construction and infrastructure capability to provide end-to-end services that ensure quality, compliance and client satisfaction.</p>
+        <p class="text-muted">Our capabilities span geological, geophysical, hydrological, topographical, environmental, socio-economic, LiDAR and drone surveys; DPR preparation and design consultancy for railways, highways, tunnels, bridges and buildings; and hydraulic design for dams, canals, flood modelling and water supply systems.</p>
+        <p class="text-muted mb-4">We are also engaged in disaster management, mining plans, renewable energy initiatives and specialised training in GIS, remote sensing and water conservation — guided always by innovation, sustainability and a client-centric approach.</p>
+        <div class="row g-3">
+          <div class="col-6"><i class="bi bi-check-circle-fill text-blue me-2"></i>Survey &amp; Consultancy</div>
+          <div class="col-6"><i class="bi bi-check-circle-fill text-blue me-2"></i>Design &amp; Construction</div>
+          <div class="col-6"><i class="bi bi-check-circle-fill text-blue me-2"></i>Water Resources</div>
+          <div class="col-6"><i class="bi bi-check-circle-fill text-blue me-2"></i>Research &amp; Training</div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="about-panel">
+          <div class="fold-mini"></div>
+          <div class="wave"></div>
+          <span class="eyebrow light">Our Promise</span>
+          <h3 class="mt-2 mb-3">Your Success Is Our Mission</h3>
+          <p style="color:#dbe6f5;font-size:.95rem;">As a newly established firm, GeoSpark Technocrats doesn't yet carry a long project history — what we bring instead is a leadership and advisory bench with decades of hands-on experience at institutions like the Central Water Commission, Kumaun University's Geology Department, and state Geology, Mining and Water Supply departments. Every engagement is led with that institutional rigour, applied fresh to your project.</p>
+          <div class="d-flex gap-4 mt-4">
+            <div><h4 class="text-white mb-0">100%</h4><small style="color:#a9bfe0;">Client-Centric Delivery</small></div>
+            <div><h4 class="text-white mb-0">ISO-grade</h4><small style="color:#a9bfe0;">Process Discipline</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-fold"></div>
+
+<!-- ============ SECTORS ============ -->
+<section class="section-pad bg-sky" id="sectors">
+  <div class="container text-center">
+    <span class="eyebrow">What We Do</span>
+    <h2 class="sec-title">Our Core Service Verticals</h2>
+    <p class="sec-lead mx-auto">From ground-level survey to full construction execution, GeoSpark Technocrats operates across five interconnected verticals.</p>
+    <div class="row g-4 mt-3 text-start">
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up">
+        <a href="#svc1" class="thumb-card" data-bs-toggle="collapse">
+          <div class="pattern pattern-survey"></div>
+          <span class="arrow-chip"><i class="bi bi-arrow-up-right"></i></span>
+          <div class="overlay">
+            <div class="ic-sm"><i class="bi bi-geo-alt"></i></div>
+            <h6>Survey</h6>
+            <small>Geological, topographical, LiDAR &amp; drone</small>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <a href="#svc2" class="thumb-card" data-bs-toggle="collapse">
+          <div class="pattern pattern-consultancy"></div>
+          <span class="arrow-chip"><i class="bi bi-arrow-up-right"></i></span>
+          <div class="overlay">
+            <div class="ic-sm"><i class="bi bi-clipboard-data"></i></div>
+            <h6>Consultancy</h6>
+            <small>DPR, design, modelling &amp; EIA</small>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+        <a href="#svc3" class="thumb-card" data-bs-toggle="collapse">
+          <div class="pattern pattern-construction"></div>
+          <span class="arrow-chip"><i class="bi bi-arrow-up-right"></i></span>
+          <div class="overlay">
+            <div class="ic-sm"><i class="bi bi-building"></i></div>
+            <h6>Construction</h6>
+            <small>Roads, bridges, tunnels &amp; buildings</small>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up">
+        <a href="#svc4" class="thumb-card" data-bs-toggle="collapse">
+          <div class="pattern pattern-water"></div>
+          <span class="arrow-chip"><i class="bi bi-arrow-up-right"></i></span>
+          <div class="overlay">
+            <div class="ic-sm"><i class="bi bi-flask"></i></div>
+            <h6>Research &amp; Development</h6>
+            <small>Climate change &amp; watershed management</small>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+        <a href="#svc5" class="thumb-card" data-bs-toggle="collapse">
+          <div class="pattern pattern-training"></div>
+          <span class="arrow-chip"><i class="bi bi-arrow-up-right"></i></span>
+          <div class="overlay">
+            <div class="ic-sm"><i class="bi bi-mortarboard"></i></div>
+            <h6>Lecture &amp; Training</h6>
+            <small>Water conservation, remote sensing &amp; GIS</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES (Accordion) ============ -->
+<section class="section-pad" id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mx-auto text-center">
+        <span class="eyebrow">Services We Provide</span>
+        <h2 class="sec-title">Detailed Service Offerings</h2>
+        <p class="sec-lead mx-auto">Expand each vertical to see the full scope of what our team can deliver on your project.</p>
+      </div>
+    </div>
+
+    <div class="accordion mt-4" id="servicesAccordion">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#svc1">
+            <span class="svc-num">01</span> Survey
+          </button>
+        </h2>
+        <div id="svc1" class="accordion-collapse collapse show" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            <ul class="svc-list">
+              <li><i class="bi bi-dot"></i>Geological Survey</li>
+              <li><i class="bi bi-dot"></i>Geotechnical Survey</li>
+              <li><i class="bi bi-dot"></i>Geophysical Survey</li>
+              <li><i class="bi bi-dot"></i>Hydrological Survey</li>
+              <li><i class="bi bi-dot"></i>Topographical Survey</li>
+              <li><i class="bi bi-dot"></i>Environmental Survey</li>
+              <li><i class="bi bi-dot"></i>Socio-Economic Survey</li>
+              <li><i class="bi bi-dot"></i>LiDAR and Drone Survey</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#svc2">
+            <span class="svc-num">02</span> Consultancy
+          </button>
+        </h2>
+        <div id="svc2" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            <ul class="svc-list">
+              <li><i class="bi bi-dot"></i>DPR — Railway, Highway, Tunnel etc.</li>
+              <li><i class="bi bi-dot"></i>Design: Bridge, Building, Highway/Road, Tunnel, Dam, Canal</li>
+              <li><i class="bi bi-dot"></i>Slope/Landslide mapping &amp; stability analysis</li>
+              <li><i class="bi bi-dot"></i>Water management &amp; Basin Planning</li>
+              <li><i class="bi bi-dot"></i>Modelling: Flood, Hydrological, Groundwater, Soil erosion</li>
+              <li><i class="bi bi-dot"></i>Environmental Impact Assessment (EIA)</li>
+              <li><i class="bi bi-dot"></i>Waste Management</li>
+              <li><i class="bi bi-dot"></i>Water Treatment &amp; Piped Water Supply Scheme</li>
+              <li><i class="bi bi-dot"></i>Sewage Treatment</li>
+              <li><i class="bi bi-dot"></i>Drainage plan for urban areas</li>
+              <li><i class="bi bi-dot"></i>Inland water transport</li>
+              <li><i class="bi bi-dot"></i>Disaster Mitigation &amp; Management (Flood, Landslide)</li>
+              <li><i class="bi bi-dot"></i>Repair &amp; Rehabilitation</li>
+              <li><i class="bi bi-dot"></i>Mining plan</li>
+              <li><i class="bi bi-dot"></i>Renewable energy</li>
+              <li><i class="bi bi-dot"></i>Satellite Image Processing / GIS Work</li>
+              <li><i class="bi bi-dot"></i>Mapping and Digitization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#svc3">
+            <span class="svc-num">03</span> Construction
+          </button>
+        </h2>
+        <div id="svc3" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            <ul class="svc-list">
+              <li><i class="bi bi-dot"></i>Roads</li>
+              <li><i class="bi bi-dot"></i>Highways</li>
+              <li><i class="bi bi-dot"></i>Bridges</li>
+              <li><i class="bi bi-dot"></i>Tunnels</li>
+              <li><i class="bi bi-dot"></i>Railways</li>
+              <li><i class="bi bi-dot"></i>Residential buildings</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#svc4">
+            <span class="svc-num">04</span> Research &amp; Development
+          </button>
+        </h2>
+        <div id="svc4" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            <ul class="svc-list">
+              <li><i class="bi bi-dot"></i>Climate change research</li>
+              <li><i class="bi bi-dot"></i>Watershed Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#svc5">
+            <span class="svc-num">05</span> Lecture &amp; Training
+          </button>
+        </h2>
+        <div id="svc5" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+          <div class="accordion-body">
+            <ul class="svc-list">
+              <li><i class="bi bi-dot"></i>Water conservation training</li>
+              <li><i class="bi bi-dot"></i>Remote Sensing and GIS Training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MISSION & VISION ============ -->
+<section class="section-pad bg-sky">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="eyebrow">Our Direction</span>
+      <h2 class="sec-title">Mission &amp; Vision</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6" data-aos="fade-up">
+        <div class="mv-card mission">
+          <h3><i class="bi bi-bullseye me-2"></i>Mission</h3>
+          <div class="row">
+            <div class="col-sm-6">
+              <ol>
+                <li>Deliver precise, reliable, innovative solutions in geological, geophysical, hydrological, hydrometeorological, topographical, environmental, socio-economic, LiDAR and drone surveys.</li>
+                <li>Empower clients with comprehensive, accurate data ensuring project success and sustainable development.</li>
+                <li>Leverage cutting-edge technology and expert analysis for high-quality reports meeting international standards.</li>
+                <li>Foster informed decision-making and support environmental stewardship.</li>
+                <li>Provide consultancy that enables informed, strategic decision-making.</li>
+              </ol>
+            </div>
+            <div class="col-sm-6">
+              <ol start="6">
+                <li>Execute construction projects with precision, safety and regulatory compliance.</li>
+                <li>Build enduring partnerships based on trust, transparency and accountability.</li>
+                <li>Promote sustainable and eco-friendly practices that minimize environmental impact.</li>
+                <li>Develop sustainable infrastructure supporting economic growth and community development.</li>
+                <li>Leverage advanced technology and skilled expertise for timely delivery and superior quality.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="120">
+        <div class="mv-card vision">
+          <h3><i class="bi bi-eye me-2"></i>Vision</h3>
+          <p>Our vision is to be a trusted leader in consultancy and construction, recognized for delivering innovative, sustainable, and high-quality solutions that shape modern infrastructure and empower communities. We aspire to:</p>
+          <ul>
+            <li><i class="bi bi-check2 me-2"></i>Set benchmarks in engineering excellence and project management.</li>
+            <li><i class="bi bi-check2 me-2"></i>Drive sustainable development through eco-friendly practices and advanced technology.</li>
+            <li><i class="bi bi-check2 me-2"></i>Build resilient infrastructure that supports economic growth and quality of life.</li>
+            <li><i class="bi bi-check2 me-2"></i>Foster long-term partnerships based on integrity, transparency and mutual success.</li>
+            <li><i class="bi bi-check2 me-2"></i>Contribute to a future where progress and environmental stewardship go hand in hand.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMMITMENT & VALUES ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="eyebrow">What Drives Us</span>
+      <h2 class="sec-title">Our Commitment &amp; Values</h2>
+      <p class="sec-lead mx-auto">The principles our advisory board and delivery teams hold every project to.</p>
+    </div>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in">
+        <div class="value-card">
+          <h6><i class="bi bi-shield-check text-blue me-2"></i>Integrity</h6>
+          <p>Honesty and transparency in every project, ensuring accurate and reliable data.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="60">
+        <div class="value-card">
+          <h6><i class="bi bi-lightbulb text-blue me-2"></i>Innovation</h6>
+          <p>Leveraging advanced technology and methods to deliver cutting-edge solutions.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="120">
+        <div class="value-card">
+          <h6><i class="bi bi-award text-blue me-2"></i>Quality</h6>
+          <p>Maintaining the highest standards in services and reports with precision.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="180">
+        <div class="value-card">
+          <h6><i class="bi bi-tree text-blue me-2"></i>Sustainability</h6>
+          <p>Prioritizing environmentally responsible practices that promote long-term growth.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in">
+        <div class="value-card">
+          <h6><i class="bi bi-people text-blue me-2"></i>Client-Centric</h6>
+          <p>Understanding and meeting client needs, fostering trust and long-term relationships.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="60">
+        <div class="value-card">
+          <h6><i class="bi bi-diagram-3 text-blue me-2"></i>Teamwork</h6>
+          <p>Collaboration and knowledge-sharing to achieve outstanding results together.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="120">
+        <div class="value-card">
+          <h6><i class="bi bi-cone-striped text-blue me-2"></i>Safety</h6>
+          <p>Prioritizing the safety of our team, clients and the environment in every task.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="zoom-in" data-aos-delay="180">
+        <div class="value-card" style="background:var(--navy);border-left-color:var(--cyan);">
+          <h6 style="color:#fff;"><i class="bi bi-quote text-blue me-2"></i>Our Promise</h6>
+          <p style="color:#c8d3e6;">"Your success is our mission." — the standard we hold ourselves to.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="section-pad bg-sky" id="leadership">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Leadership &amp; Advisory</span>
+      <h2 class="sec-title">The People Behind GeoSpark</h2>
+      <p class="sec-lead mx-auto">A compact leadership team backed by a senior advisory board with decades of institutional experience in geology, water resources and public infrastructure.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up">
+        <div class="lead-card proprietor">
+          <div class="avatar">RS</div>
+          <span class="adv-badge">Proprietor</span>
+          <h6>Rekha Sinha</h6>
+          <div class="role">Founder &amp; Proprietor</div>
+          <p class="desc">Leads GeoSpark Technocrats' overall strategy, client relationships and delivery standards.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="60">
+        <div class="lead-card">
+          <div class="avatar">CP</div>
+          <span class="adv-badge">Advisor</span>
+          <h6>Prof. Charu Chandra Pant</h6>
+          <div class="role">Former HOD, Dept. of Geology</div>
+          <p class="desc">Kumaun University, Nainital, Uttarakhand.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="120">
+        <div class="lead-card">
+          <div class="avatar">AM</div>
+          <span class="adv-badge">Advisor</span>
+          <h6>Anil Kumar Mohinta</h6>
+          <div class="role">Former Director</div>
+          <p class="desc">Central Water Commission, New Delhi.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="180">
+        <div class="lead-card">
+          <div class="avatar">JJ</div>
+          <span class="adv-badge">Advisor</span>
+          <h6>Dr. Joginder Singh Jamwal</h6>
+          <div class="role">Former Deputy Director</div>
+          <p class="desc">Geology &amp; Mining Department, J&amp;K (UT).</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
+        <div class="lead-card">
+          <div class="avatar">BC</div>
+          <span class="adv-badge">Advisor</span>
+          <h6>T. S. Brahmananda Chary</h6>
+          <div class="role">Former Joint Director</div>
+          <p class="desc">Rural Water Supply &amp; Sanitation Department, Telangana.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <span class="eyebrow">Why Partner With Us</span>
+        <h2 class="sec-title">New Company. Not New Expertise.</h2>
+        <p class="text-muted mt-3">GeoSpark Technocrats is a newly established firm — we don't claim a long project portfolio. What we offer instead is a leadership team and advisory board carrying real, decades-long institutional experience, applied with the agility and attention of a young firm building its name.</p>
+        <a href="#contact" class="btn-brand mt-2">Start a Conversation</a>
+        <div class="thumb-card tall mt-4 d-none d-lg-flex">
+          <div class="pattern pattern-consultancy"></div>
+          <div class="overlay">
+            <div class="ic-sm"><i class="bi bi-people"></i></div>
+            <h6>Advisory-Led Delivery</h6>
+            <small>Every project reviewed by our senior advisory board</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="why-strip">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="why-item">
+                <i class="bi bi-person-badge"></i>
+                <div><h6>Experienced Advisory Board</h6><p>Former institutional heads guiding every major deliverable.</p></div>
+              </div>
+              <div class="why-item">
+                <i class="bi bi-lightning-charge"></i>
+                <div><h6>Agile, Direct Access</h6><p>Work directly with decision-makers — no layers, no delays.</p></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="why-item">
+                <i class="bi bi-gear-wide-connected"></i>
+                <div><h6>Modern Survey Technology</h6><p>LiDAR, drone and GIS-driven methods from day one.</p></div>
+              </div>
+              <div class="why-item">
+                <i class="bi bi-handshake"></i>
+                <div><h6>Transparent Partnership</h6><p>Honest timelines and pricing while we build our portfolio together with you.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="pb-5">
+  <div class="container">
+    <div class="cta-banner text-center" data-aos="zoom-in">
+      <div class="fold-mini2"></div>
+      <h2 class="text-white sec-title">Have a Project in Mind?</h2>
+      <p class="mb-4" style="max-width:560px;margin:0 auto;color:#eaf3ff;">Whether it's a survey, a design consultancy, or a full construction mandate — let's talk about how GeoSpark Technocrats can help.</p>
+      <a href="#contact" class="btn btn-light fw-semibold px-4 py-2">Get In Touch <i class="bi bi-arrow-right ms-1"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section-pad bg-sky" id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="sec-title">Let's Discuss Your Project</h2>
+      <p class="sec-lead mx-auto">Send us a message or reach out directly — our team responds within one business day.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4" data-aos="fade-right">
+        <div class="contact-card h-100">
+          <div class="item">
+            <i class="bi bi-telephone-fill"></i>
+            <div><h6>Contact / WhatsApp</h6><p><a href="tel:+918368888930">+91 83688 88930</a></p></div>
+          </div>
+          <div class="item">
+            <i class="bi bi-envelope-fill"></i>
+            <div><h6>Business Enquiries</h6><p><a href="mailto:geospark.business@gmail.com">geospark.business@gmail.com</a></p></div>
+          </div>
+          <div class="item">
+            <i class="bi bi-briefcase-fill"></i>
+            <div><h6>Career Enquiries</h6><p><a href="mailto:geospark.careers@gmail.com">geospark.careers@gmail.com</a></p></div>
+          </div>
+          <div class="item">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div><h6>Location</h6><p>First Floor, W A-40, Shakarpur,<br>Gandhi Nagar, East Delhi,<br>Delhi-110096</p></div>
+          </div>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" class="social-round"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/918368888930" target="_blank" class="social-round"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" class="social-round"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-round"><i class="bi bi-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8" data-aos="fade-left">
+        <div class="row g-4 h-100">
+          <div class="col-md-7">
+            <div class="contact-form-wrap h-100">
+              <h5 class="mb-3 fw-bold">Send Us a Message</h5>
+              <form id="contactForm" class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label class="form-label small fw-semibold">Full Name</label>
+                    <input type="text" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="form-label small fw-semibold">Phone</label>
+                    <input type="tel" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your phone number.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-semibold">Email</label>
+                    <input type="email" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-semibold">Subject</label>
+                    <select class="form-select" required>
+                      <option value="" selected disabled>Select an option</option>
+                      <option>Survey Enquiry</option>
+                      <option>Consultancy Enquiry</option>
+                      <option>Construction Enquiry</option>
+                      <option>Training / Career</option>
+                      <option>Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a subject.</div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-semibold">Message</label>
+                    <textarea class="form-control" rows="4" required></textarea>
+                    <div class="invalid-feedback">Please enter your message.</div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn-brand w-100">Send Message <i class="bi bi-send ms-1"></i></button>
+                  </div>
+                  <div class="col-12">
+                    <div id="formSuccess" class="alert alert-success mt-2 d-none mb-0 py-2 small">Thanks! Your message has been noted — we'll get back to you shortly.</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="map-wrap">
+              <iframe src="https://maps.google.com/maps?q=W%20A-40%2C%20Shakarpur%2C%20Gandhi%20Nagar%2C%20East%20Delhi%2C%20Delhi-110096&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="pt-5">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-4">
+        <span class="brand-mark" style="color:#fff;">Geo<span style="color:var(--cyan);">Spark</span></span>
+        <span class="brand-sub" style="color:#93a2bd;">Technocrats</span>
+        <p class="mt-3" style="font-size:.9rem;">A multi-disciplinary consultancy and construction firm delivering integrated survey, design and infrastructure solutions with an experienced advisory foundation.</p>
+        <div class="mt-3">
+          <a href="#" class="social-round"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/918368888930" target="_blank" class="social-round"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" class="social-round"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-round"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#sectors">Sectors</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6>Our Services</h6>
+        <ul>
+          <li><a href="#services">Survey</a></li>
+          <li><a href="#services">Consultancy</a></li>
+          <li><a href="#services">Construction</a></li>
+          <li><a href="#services">Research &amp; Development</a></li>
+          <li><a href="#services">Lecture &amp; Training</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact</h6>
+        <ul>
+          <li><i class="bi bi-telephone-fill me-2"></i><a href="tel:+918368888930">+91 83688 88930</a></li>
+          <li><i class="bi bi-envelope-fill me-2"></i><a href="mailto:geospark.business@gmail.com">geospark.business@gmail.com</a></li>
+          <li><i class="bi bi-geo-alt-fill me-2"></i>W A-40, Shakarpur, East Delhi - 110096</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center text-md-start">
+      <span>&copy; 2026 GeoSpark Technocrats. All Rights Reserved.</span>
+      <span>Privacy Policy &nbsp;|&nbsp; Disclaimer</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING BUTTONS ============ -->
+<div class="float-stack">
+  <button id="toTop" class="float-btn top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <a href="mailto:geospark.business@gmail.com" class="float-btn email" aria-label="Email us"><i class="bi bi-envelope-fill"></i></a>
+  <a href="tel:+918368888930" class="float-btn call" aria-label="Call us"><i class="bi bi-telephone-fill"></i></a>
+  <a href="https://wa.me/918368888930" target="_blank" class="float-btn whatsapp" aria-label="WhatsApp us"><i class="bi bi-whatsapp"></i></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  // Scroll-reveal animations
+  AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
+
+  // Hero carousel: keyboard arrow navigation + true autoplay on load
+  const heroEl = document.getElementById('heroCarousel');
+  const heroCarousel = new bootstrap.Carousel(heroEl, { interval: 5000, ride: 'carousel', pause: false, wrap: true });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight'){ heroCarousel.next(); }
+    if(e.key === 'ArrowLeft'){ heroCarousel.prev(); }
+  });
+
+  // Navbar shadow on scroll
+  const nav = document.getElementById('mainNav');
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+    if(window.scrollY > 400){ toTop.classList.add('show'); } else { toTop.classList.remove('show'); }
+  });
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // Simple client-side form validation + fake submit
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if(!form.checkValidity()){
+      form.classList.add('was-validated');
+      return;
+    }
+    document.getElementById('formSuccess').classList.remove('d-none');
+    form.reset();
+    form.classList.remove('was-validated');
+  });
+
+  // Close mobile navbar on link click
+  document.querySelectorAll('#navMenu .nav-link').forEach(link=>{
+    link.addEventListener('click', ()=>{
+      const menu = document.getElementById('navMenu');
+      if(menu.classList.contains('show')){
+        new bootstrap.Collapse(menu).hide();
+      }
+    });
+  });
+</script>
+</body>
+</html>

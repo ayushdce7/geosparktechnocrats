@@ -1238,7 +1238,8 @@ textarea.form-control-custom { resize: vertical; min-height: 130px; }
 .vm-card-mission ul li { color: rgba(255,255,255,0.9); }
 .vm-card-mission ul li::before { content: '✓'; color: var(--accent); font-weight: 700; }
 .vm-card-vision ul li { color: var(--text); }
-.vm-card-vision ul li::before { content: '→'; color: var(--primary); font-weight: 700; }
+.vm-card-vision ul li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+.vm-card-commitments ul li::before { content: '✓'; color: var(--accent); font-weight: 700; }
 
 /* Particle canvas */
 #particle-canvas { position: absolute; inset: 0; z-index: 3; pointer-events: none; }

@@ -252,34 +252,59 @@ if (slides.length > 0) {
   });
 }
 
-// ============ Form Validation ============
+// ============ Contact Form ============
 const contactForm = document.getElementById('contactForm');
+
 if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
+  contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const name = this.querySelector('[name="name"]').value.trim();
-    const email = this.querySelector('[name="email"]').value.trim();
-    const message = this.querySelector('[name="message"]').value.trim();
+
+    const form = this;
+
+    const name = form.querySelector('[name="name"]').value.trim();
+    const email = form.querySelector('[name="email"]').value.trim();
+    const message = form.querySelector('[name="message"]').value.trim();
 
     if (!name || !email || !message) {
-      showToast('Please fill in all required fields.', 'error');
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showToast('Please enter a valid email address.', 'error');
+      alert('Please fill in all required fields.');
       return;
     }
 
-    const btn = this.querySelector('[type="submit"]');
-    btn.textContent = 'Sending...';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const btn = form.querySelector('[type="submit"]');
+    const originalText = btn.innerHTML;
+
+    btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
     btn.disabled = true;
 
-    setTimeout(() => {
-      showToast('Message sent successfully! We\'ll get back to you soon.', 'success');
-      this.reset();
-      btn.textContent = 'Send Message';
+    try {
+      const response = await fetch('contact.php', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+
+      if (response.ok) {
+        alert('Thank you! Your message has been sent successfully.');
+        form.reset();
+      } else {
+        const errorText = await response.text();
+        console.error('Contact form error:', errorText);
+
+        alert('Sorry, your message could not be sent. Please try again.');
+      }
+
+    } catch (error) {
+      console.error('Contact form error:', error);
+      alert('Unable to send your message. Please try again later.');
+
+    } finally {
+      btn.innerHTML = originalText;
       btn.disabled = false;
-    }, 1500);
+    }
   });
 }
 

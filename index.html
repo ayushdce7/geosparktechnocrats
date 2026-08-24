@@ -1598,7 +1598,7 @@ font-size:16px;
       <div class="col-lg-7 fade-right">
         <div class="contact-card">
           <h4 style="color:var(--primary);margin-bottom:1.5rem;font-size:1.3rem">Send Us a Message</h4>
-          <form id="contactForm" novalidate aria-label="Contact form">
+          <form id="contactForm" novalidate aria-label="Contact form" action="contact.php" method="POST">
             <div class="row g-0">
               <div class="col-md-6 pe-md-2">
                 <input type="text" name="name" class="form-control-custom" placeholder="Your Full Name *" required aria-label="Full Name" />
@@ -3052,7 +3052,7 @@ textarea.career-input {
             <div class="modal-body career-modal-body">
 
                 <form id="jobApplicationForm"
-                      action="#"
+                      action="job-application.php"
                       method="POST"
                       enctype="multipart/form-data">
 
@@ -3299,23 +3299,40 @@ textarea.career-input {
 
 </div>
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const applicationModal = document.getElementById("jobApplicationModal");
-    const jobPositionInput = document.getElementById("jobPosition");
-    const applicationForm = document.getElementById("jobApplicationForm");
+    const applicationModal =
+        document.getElementById("jobApplicationModal");
+
+    const jobPositionInput =
+        document.getElementById("jobPosition");
+
+    const applicationForm =
+        document.getElementById("jobApplicationForm");
+
+    const cvInput =
+        document.getElementById("cvFile");
+
+    const selectedFileName =
+        document.getElementById("selectedFileName");
+
 
     /*
-     * Get selected job when Apply button is clicked
+     * =========================
+     * SELECT JOB POSITION
+     * =========================
      */
+
     document.querySelectorAll(".career-apply-btn").forEach(function (button) {
 
         button.addEventListener("click", function () {
 
-            const jobName = this.getAttribute("data-job");
+            const jobName =
+                this.getAttribute("data-job");
 
             if (jobPositionInput) {
-                jobPositionInput.value = jobName;
+                jobPositionInput.value = jobName || "";
             }
 
         });
@@ -3324,10 +3341,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-     * Display selected CV filename
+     * =========================
+     * CV FILE SELECTION
+     * =========================
      */
-    const cvInput = document.getElementById("cvFile");
-    const selectedFileName = document.getElementById("selectedFileName");
 
     if (cvInput) {
 
@@ -3337,20 +3354,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const file = this.files[0];
 
-                /*
-                 * Maximum file size: 5 MB
-                 */
-                const maxSize = 5 * 1024 * 1024;
+                const maxSize =
+                    5 * 1024 * 1024;
 
                 if (file.size > maxSize) {
 
-                    alert("CV file size must be less than 5 MB.");
+                    alert(
+                        "CV file size must be less than 5 MB."
+                    );
 
                     this.value = "";
                     selectedFileName.textContent = "";
 
                     return;
                 }
+
+
+                const allowedTypes = [
+                    "application/pdf",
+                    "application/msword",
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                ];
+
+                const extension =
+                    file.name
+                        .split(".")
+                        .pop()
+                        .toLowerCase();
+
+                if (
+                    !["pdf", "doc", "docx"].includes(extension)
+                ) {
+
+                    alert(
+                        "Only PDF, DOC and DOCX files are allowed."
+                    );
+
+                    this.value = "";
+                    selectedFileName.textContent = "";
+
+                    return;
+                }
+
 
                 selectedFileName.textContent =
                     "Selected: " + file.name;
@@ -3367,8 +3412,192 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-     * Reset form when modal closes
+     * =========================
+     * SUBMIT APPLICATION
+     * =========================
      */
+
+    if (applicationForm) {
+
+        applicationForm.addEventListener(
+            "submit",
+            async function (e) {
+
+                e.preventDefault();
+
+                const form = this;
+
+                const submitButton =
+                    form.querySelector(
+                        'button[type="submit"]'
+                    );
+
+
+                /*
+                 * HTML validation
+                 */
+
+                if (!form.checkValidity()) {
+
+                    form.reportValidity();
+
+                    return;
+                }
+
+
+                /*
+                 * CV validation
+                 */
+
+                if (
+                    !cvInput ||
+                    !cvInput.files ||
+                    cvInput.files.length === 0
+                ) {
+
+                    alert("Please upload your CV.");
+
+                    return;
+                }
+
+
+                const file =
+                    cvInput.files[0];
+
+                const maxSize =
+                    5 * 1024 * 1024;
+
+                if (file.size > maxSize) {
+
+                    alert(
+                        "CV file size must be less than 5 MB."
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Disable button
+                 */
+
+                const originalButtonHTML =
+                    submitButton.innerHTML;
+
+                submitButton.disabled = true;
+
+                submitButton.innerHTML =
+                    'Submitting... <span>⏳</span>';
+
+
+                try {
+
+                    const formData =
+                        new FormData(form);
+
+
+                    const response =
+                        await fetch(
+                            "job-application.php",
+                            {
+                                method: "POST",
+                                body: formData
+                            }
+                        );
+
+
+                    let result;
+
+                    try {
+
+                        result =
+                            await response.json();
+
+                    } catch (jsonError) {
+
+                        throw new Error(
+                            "Invalid server response."
+                        );
+
+                    }
+
+
+                    if (
+                        response.ok &&
+                        result.success
+                    ) {
+
+                        alert(
+                            result.message ||
+                            "Your application has been submitted successfully."
+                        );
+
+
+                        /*
+                         * Clear form
+                         */
+
+                        form.reset();
+
+                        selectedFileName.textContent = "";
+
+
+                        /*
+                         * Close Bootstrap modal
+                         */
+
+                        const modal =
+                            bootstrap.Modal.getInstance(
+                                applicationModal
+                            );
+
+                        if (modal) {
+                            modal.hide();
+                        }
+
+                    } else {
+
+                        alert(
+                            result.message ||
+                            "Unable to submit your application."
+                        );
+
+                    }
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Application error:",
+                        error
+                    );
+
+                    alert(
+                        "Unable to submit your application. Please try again later."
+                    );
+
+
+                } finally {
+
+                    submitButton.disabled = false;
+
+                    submitButton.innerHTML =
+                        originalButtonHTML;
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /*
+     * =========================
+     * RESET WHEN MODAL CLOSES
+     * =========================
+     */
+
     if (applicationModal) {
 
         applicationModal.addEventListener(
@@ -3389,6 +3618,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
 </script>
 </body>
 </html>

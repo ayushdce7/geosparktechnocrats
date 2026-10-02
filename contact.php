@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 |--------------------------------------------------------------------------
 */
 
-$toEmail = 'hr@geosparktechnocrats.com';
+$toEmail = 'business@geosparktechnocrats.com';
 $toName  = 'GeoSpark Technocrats';
 
 $smtpHost = 'smtp.hostinger.com';
 $smtpPort = 465;
-$smtpUser = 'hr@geosparktechnocrats.com';
-$smtpPass = 'Geospark$2';
+$smtpUser = 'business@geosparktechnocrats.com';
+$smtpPass = 'Geospark$1';
 
 /*
 |--------------------------------------------------------------------------
